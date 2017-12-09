@@ -35,8 +35,13 @@ typedef	struct	s_all
 	int				img_win;
 	int				size_win_x;
 	int				size_win_y;
+	int				ite;
+	int				*tab;
 }				t_all;
 
 void    create_img(t_all *img);
+int		*ft_stock(t_all *point);
+
+int		main(int ac, char **av);
 
 #endif

@@ -22,7 +22,9 @@ LFT_INC = -I ./libft
 INC = $(LFT-INC) -I ./
 FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 
-SRCS = srcs/create_image.c
+SRCS = srcs/create_image.c \
+		srcs/main.c
+
 
 OBJ = $(SRCS:%.c=%.o)
 
