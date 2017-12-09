@@ -49,7 +49,6 @@ fclean: clean
 	rm -rf $(NAME)
 	@echo " "
 	@echo "\\0033[31m\033[1m  Executable deleted  \\0033[0m"
-	echo " "
 
 re: fclean all
 
