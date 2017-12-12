@@ -1,6 +1,6 @@
 # include "../includes/fractol.h"
 
-void    ft_resize(t_all *imgt)
+/*void    ft_resize(t_all *imgt)
 {
     t_coord     coord_imgt;
 
@@ -20,7 +20,7 @@ void    ft_resize(t_all *imgt)
 }
 
 
-/*int     ft_julia(t_all *point)
+int     ft_julia(t_all *point)
 {
     int     z;
     int     c;

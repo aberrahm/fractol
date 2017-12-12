@@ -46,7 +46,7 @@ typedef	struct	s_all
 	t_coord			coord;
 }				t_all;
 
-void	ft_resize(t_all *imgt);
+//void	ft_resize(t_all *imgt);
 void	ft_pixel_put(t_all *point, int x, int y, uint32_t color);
 void	create_img_top(t_all *imgt);
 void    create_img(t_all *img);
