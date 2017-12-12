@@ -23,7 +23,8 @@ INC = $(LFT-INC) -I ./
 FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 
 SRCS = srcs/create_image.c \
-		srcs/main.c
+		srcs/main.c \
+		srcs/algo.c 
 
 OBJ = $(SRCS:%.c=%.o)
 
