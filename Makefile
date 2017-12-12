@@ -25,7 +25,6 @@ FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 SRCS = srcs/create_image.c \
 		srcs/main.c
 
-
 OBJ = $(SRCS:%.c=%.o)
 
 all: $(NAME)

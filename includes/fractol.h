@@ -20,6 +20,12 @@
 # include "color.h"
 # include "mlx.h"
 
+typedef struct	s_coord
+{
+	int		x;
+	int		y;
+}				t_coord;
+
 typedef	struct	s_all
 {
 	void			*mlx_ptr;
@@ -37,8 +43,11 @@ typedef	struct	s_all
 	int				size_win_y;
 	int				ite;
 	int				*tab;
+	t_coord			coord;
 }				t_all;
 
+void	ft_test(t_all *point);
+void	ft_pixel_put(t_all *point, int x, int y, uint32_t color);
 void    create_img(t_all *img);
 int		*ft_stock(t_all *point);
 
