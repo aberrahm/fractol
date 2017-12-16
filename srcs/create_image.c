@@ -24,35 +24,20 @@ void create_img(t_all *img)
 	img->img_ptr = mlx_new_image(img->mlx_ptr, img->width, img->height);
 	img->data = mlx_get_data_addr(img->img_ptr, &img->bpp,
 								  &img->sizeline, &img->endian);
-	img->img_win = mlx_put_image_to_window(img->mlx_ptr, img->win_ptr,
-										   img->img_ptr, 0, 0);
 }
 
-void create_img_top(t_all *imgt)
+void ft_resize(t_all *img)
 {
-	t_coord coord_imgt;
-	imgt->width = 1000;
-	imgt->height = 900;
-
-	coord_imgt.x = 1;
-	coord_imgt.y = 1;
-	mlx_new_image(imgt->mlx_ptr, imgt->width, imgt->height);
-	while (coord_imgt.x == 1 && coord_imgt.y == 1)
-	{
-		ft_pixel_put(imgt, coord_imgt.x, coord_imgt.y, BLANCCA);
-		if (imgt)
-		{
-			imgt->width = imgt->width / 2.0;
-			imgt->height = imgt->height / 2.0;
-			coord_imgt.x = coord_imgt.x * 2.0;
-			coord_imgt.y = coord_imgt.y * 2.0;
-			ft_pixel_put(imgt, coord_imgt.x, coord_imgt.y, VERT);
-		}
-		coord_imgt.x++;
-		coord_imgt.y++;
-		mlx_put_image_to_window(imgt->mlx_ptr, imgt->win_ptr, imgt->img_ptr, 200, 100);
-	}
+	img->ortho.x1 = -2.1;
+	img->ortho.x2 = 0.6;
+	img->ortho.y1 = -1.2;
+	img->ortho.y2 = 1.2;
+	img->zoom = 100;
+	img->ite = 50;
+	img->width = (img->ortho.x2 - img->ortho.x1) * img->zoom;
+	img->height = (img->ortho.y2 - img->ortho.y1) * img->zoom;
 }
+
 void ft_pixel_put(t_all *point, int x, int y, uint32_t color)
 {
 	uint32_t *pixel;

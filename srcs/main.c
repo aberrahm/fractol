@@ -9,13 +9,11 @@ int main(int ac, char **av)
     if (ac && av)
     {
             create_img(&point);
-            ft_pixel_put(&point, 1000, 600, ROSEC);
-            ft_pixel_put(&point, 1001, 600, ROSEC);
-            ft_pixel_put(&point, 1002, 600, ROSEC);
-            ft_pixel_put(&point, 1003, 600, ROSEC);
-            ft_pixel_put(&point, 1004, 600, ROSEC);
-           // mlx_put_image_to_window(point.mlx_ptr, point.win_ptr, point.img_ptr, 0, 0);
-            create_img_top(&point);
+            ft_mandelbrot(&point);
+            //ft_pixel_put(&point, 1, 498, ROSEC);
+            //ft_pixel_put(&point, 1, 497, ROSEC);
+            //ft_pixel_put(&point, 1, 496, ROSEC);
+            mlx_put_image_to_window(point.mlx_ptr, point.win_ptr, point.img_ptr, point.coord.x, point.coord.y);
     }
     mlx_loop(point.mlx_ptr);
     return (0);

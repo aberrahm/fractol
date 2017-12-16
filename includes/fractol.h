@@ -22,9 +22,26 @@
 
 typedef struct	s_coord
 {
-	int		x;
-	int		y;
+	int				x;
+	int				y;
 }				t_coord;
+
+typedef struct	s_ortho
+{
+	float			x1;
+	float			x2;
+	float			y1;
+	float			y2;
+	t_coord		coord;
+}				t_ortho;
+
+typedef struct	s_nb
+{
+	int				z_r;
+	int				z_i;
+	int				c_r;
+	int				c_i;
+}				t_nb;
 
 typedef	struct	s_all
 {
@@ -43,15 +60,17 @@ typedef	struct	s_all
 	int				size_win_y;
 	int				ite;
 	int				*tab;
+	int				zoom;
+	t_ortho			ortho;
+	t_nb			nb;
 	t_coord			coord;
 }				t_all;
 
-//void	ft_resize(t_all *imgt);
+void	ft_mandelbrot(t_all *point);
+void	ft_resize(t_all *imgt);
 void	ft_pixel_put(t_all *point, int x, int y, uint32_t color);
-void	create_img_top(t_all *imgt);
 void    create_img(t_all *img);
 int		*ft_stock(t_all *point);
-
 int		main(int ac, char **av);
 
 #endif
