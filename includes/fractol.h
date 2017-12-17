@@ -28,6 +28,8 @@ typedef struct	s_coord
 
 typedef struct	s_ortho
 {
+	float			width;
+	float			height;
 	float			x1;
 	float			x2;
 	float			y1;
@@ -37,10 +39,10 @@ typedef struct	s_ortho
 
 typedef struct	s_nb
 {
-	int				z_r;
-	int				z_i;
-	int				c_r;
-	int				c_i;
+	float			z_r;
+	float			z_i;
+	float			c_r;
+	float			c_i;
 }				t_nb;
 
 typedef	struct	s_all

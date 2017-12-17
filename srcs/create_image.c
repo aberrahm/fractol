@@ -14,10 +14,10 @@
 
 void create_img(t_all *img)
 {
-	img->size_win_x = 1400;
-	img->size_win_y = 1000;
-	img->width = 1400;
-	img->height = 1000;
+	img->size_win_x = 500;
+	img->size_win_y = 500;
+	img->width = 500;
+	img->height = 500;
 	img->mlx_ptr = mlx_init();
 	img->win_ptr = mlx_new_window(img->mlx_ptr, img->size_win_x,
 								  img->size_win_y, "fractol");
@@ -32,10 +32,10 @@ void ft_resize(t_all *img)
 	img->ortho.x2 = 0.6;
 	img->ortho.y1 = -1.2;
 	img->ortho.y2 = 1.2;
-	img->zoom = 100;
+	//img->zoom = 100;
 	img->ite = 50;
-	img->width = (img->ortho.x2 - img->ortho.x1) * img->zoom;
-	img->height = (img->ortho.y2 - img->ortho.y1) * img->zoom;
+	img->ortho.width = (img->ortho.x2 - img->ortho.x1); //* img->zoom;
+	img->ortho.height = (img->ortho.y2 - img->ortho.y1); //* img->zoom;
 }
 
 void ft_pixel_put(t_all *point, int x, int y, uint32_t color)
