@@ -30,24 +30,49 @@ void ft_mandelbrot(t_all *point)
                 i++;
             }
             if (i == point->ite)
-                mlx_pixel_put(point->mlx_ptr, point->win_ptr, point->coord.x, point->coord.y, BLANCCA);
+                ft_pixel_put(point, point->coord.x, point->coord.y, ROUGEF);
+            else
+                ft_pixel_put(point, point->coord.x, point->coord.y, (i * ROSEC) / point->ite);
             point->coord.y++;
         }
         point->coord.x++;
     }
 }
 
-/*int     ft_julia(t_all *point)
+void ft_julia(t_all *point)
 {
-    int     z;
-    int     c;
+    int     i;
+    float   j;
+    float   x;
+    float   y;
 
-
-    z = z * z + c;
-    while (z < 4)
+    ft_resize(point);
+    point->coord.x = 0;
+    while (point->coord.x < point->width)
     {
-
-        point->ite++;
+        point->coord.y = 0;
+        while (point->coord.y < point->height)
+        {
+            x = init_x(point);
+            y = init_y(point);
+            point->nb.c_r = 0.285;
+            point->nb.c_i = 0.01;
+            point->nb.z_r = x;
+            point->nb.z_i = y; // 0.2 correspond à la taille du zoom. 
+            i = 0;
+            while (point->nb.z_r * point->nb.z_r + point->nb.z_i * point->nb.z_i < 4 && i < point->ite)
+            {
+                j = point->nb.z_r;
+                point->nb.z_r = point->nb.z_r * point->nb.z_r - point->nb.z_i * point->nb.z_i + point->nb.c_r;
+                point->nb.z_i = 2.0 * point->nb.z_i * j + point->nb.c_i;
+                i++;
+            }
+            if (i == point->ite)
+                ft_pixel_put(point, point->coord.x, point->coord.y, ROUGEF);
+            else
+                ft_pixel_put(point, point->coord.x, point->coord.y, (i * ROSEC) / point->ite);
+            point->coord.y++;
+        }
+        point->coord.x++;
     }
-    return (point->ite);
-}*/
+}

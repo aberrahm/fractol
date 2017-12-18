@@ -15,6 +15,7 @@
 
 # include <math.h>
 # include <fcntl.h>
+# include <pthread.h>
 # include "../libft/libft.h"
 # include "./keynote.h"
 # include "color.h"
@@ -62,16 +63,21 @@ typedef	struct	s_all
 	int				size_win_y;
 	int				ite;
 	int				*tab;
-	int				zoom;
+	float			zoom;
 	t_ortho			ortho;
 	t_nb			nb;
 	t_coord			coord;
 }				t_all;
 
 void	ft_mandelbrot(t_all *point);
+void	ft_julia(t_all *point);
 void	ft_resize(t_all *imgt);
 void	ft_pixel_put(t_all *point, int x, int y, uint32_t color);
 void    create_img(t_all *img);
+void	zoom(t_all *img);
+float	init_x(t_all *img);
+float	init_y(t_all *img);
+//int		mouse_hook(int button, t_all *img);
 int		*ft_stock(t_all *point);
 int		main(int ac, char **av);
 
