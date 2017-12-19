@@ -1,10 +1,12 @@
 #include "../includes/fractol.h"
+#include <stdio.h>
 
 int main(int ac, char **av)
 {
     t_all point;
     int i;
 
+    point.zoom = 1;
     i = 0;
     if (ac && av)
     {

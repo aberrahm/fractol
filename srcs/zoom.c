@@ -8,12 +8,12 @@ int mouse_hook(int button, int x, int y, t_all *img)
 
         if (button == M_LEFT || button == M_MOLUP)
         {
-            img->zoom += 0.2;
+            img->zoom *= 0.8;
            ft_julia(img);
         }
         if (button == M_RIGHT || button == M_MOLDOWN)
         {
-            img->zoom -= 0.2;
+            img->zoom *= 1.2;
            ft_julia(img);
         }
         mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
