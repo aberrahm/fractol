@@ -41,10 +41,10 @@ void ft_mandelbrot(t_all *point)
 
 void ft_julia(t_all *point)
 {
-    int     i;
-    float   j;
-    float   x;
-    float   y;
+    int i;
+    float j;
+    float x;
+    float y;
 
     ft_resize(point);
     point->coord.x = 0;
@@ -58,7 +58,7 @@ void ft_julia(t_all *point)
             point->nb.c_r = 0.285;
             point->nb.c_i = 0.01;
             point->nb.z_r = x;
-            point->nb.z_i = y; // 0.2 correspond à la taille du zoom. 
+            point->nb.z_i = y;
             i = 0;
             while (point->nb.z_r * point->nb.z_r + point->nb.z_i * point->nb.z_i < 4 && i < point->ite)
             {

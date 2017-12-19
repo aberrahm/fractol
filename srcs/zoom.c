@@ -1,23 +1,31 @@
 #include "../includes/fractol.h"
 #include <stdio.h>
 
-/*int mouse_hook(int button, t_all *img)
+int mouse_hook(int button, int x, int y, t_all *img)
 {
-        if (button == 1)
+    x = img->coord.x;
+    y = img->coord.y;
+
+        if (button == M_LEFT || button == M_MOLUP)
         {
-            img->zoom = 0.2;
-            img->nb.z_r = init_x(img) * img->zoom;
-            img->nb.z_i = init_y(img) * img->zoom;
+            img->zoom += 0.2;
+           ft_julia(img);
         }
+        if (button == M_RIGHT || button == M_MOLDOWN)
+        {
+            img->zoom -= 0.2;
+           ft_julia(img);
+        }
+        mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
     return (0);
-}*/ //A REVOIRRRR CA PLANTE ICIIII
+}
 
 float     init_x(t_all *point)
 {
     float   x;
 
   x = (((float)point->coord.x / (float)point->width) * point->ortho.width) + point->ortho.x1;
-  return (x);
+  return (x * point->zoom);
 }
 
 float     init_y(t_all *point)
@@ -25,5 +33,5 @@ float     init_y(t_all *point)
     float   y;
 
     y = ((((float)point->height - (float)point->coord.y) / (float)point->height) * point->ortho.height) + point->ortho.y1;
-    return (y);
+    return (y * point->zoom);
 }

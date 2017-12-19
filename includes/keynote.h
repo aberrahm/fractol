@@ -73,5 +73,9 @@
 # define K_LEFT 123
 # define K_RISE 126
 # define K_ESC 53
+# define M_LEFT 1
+# define M_RIGHT 2
+# define M_MOLUP 5
+# define M_MOLDOWN 4
 
 #endif

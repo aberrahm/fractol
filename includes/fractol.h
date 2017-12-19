@@ -63,6 +63,7 @@ typedef	struct	s_all
 	int				size_win_y;
 	int				ite;
 	int				*tab;
+	int				button;
 	float			zoom;
 	t_ortho			ortho;
 	t_nb			nb;
@@ -77,7 +78,7 @@ void    create_img(t_all *img);
 void	zoom(t_all *img);
 float	init_x(t_all *img);
 float	init_y(t_all *img);
-//int		mouse_hook(int button, t_all *img);
+int		mouse_hook(int button, int x, int y, t_all *img);
 int		*ft_stock(t_all *point);
 int		main(int ac, char **av);
 
