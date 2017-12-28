@@ -1,55 +1,48 @@
 #include "../includes/fractol.h"
 #include <stdio.h>
 
-int mouse_hook(int button, int x, int y, t_all *img)
+/*int mouse_hook(int button, int x, int y, t_all *img)
 {
-    x = img->coord.x;
-    y = img->coord.y;
+    x = (int)init_mouse_x(img);
+    y = (int)init_mouse_y(img);
 
     if (button == M_LEFT || button == M_MOLUP)
     {
         img->zoom *= 0.8;
-        //ft_mandelbrot(img);
-        // ft_julia(img);
+        ft_julia(img);
         //ft_lapin(img);
     }
     if (button == M_RIGHT || button == M_MOLDOWN)
     {
         img->zoom *= 1.2;
-        //ft_mandelbrot(img);
-        //ft_julia(img);
+        ft_julia(img);
         //ft_lapin(img);
     }
+    if (x && y)
+        ft_julia(img);
     mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
+    return (0);
+}*/
+
+int mouse_hook_m(int x, int y, t_all *img)
+{
+    img->mouse_x = (x - img->size_win_x / 2.0) / img->size_win_x * 2.0;
+    img->mouse_y = (y - img->size_win_y / 2.0) / img->size_win_y * 2.0;
+    ft_julia(img);
     return (0);
 }
 
-int mouse_hook_julia(int button, int x, int y, t_all *img)
+/*int mouse_hook_julia(int x, int y, t_all *img)
 {
-    x = img->coord.x;
-    y = img->coord.y;
-
-        if (button == M_LEFT && img->coord.x < img->size_win_x && img->coord.x < img->size_win_y &&
-            img->coord.y < img->size_win_x && img->coord.y < img->size_win_y)
+        if (x < img->size_win_x && x < img->size_win_y &&
+            y < img->size_win_x && y < img->size_win_y)
         {
-            img->nb.c_r += 1.0;
-            img->nb.c_i += 1.0;
+            img->nb.c_r = (float)x;
+            img->nb.c_i = (float)y;
         }
         mlx_put_image_to_window(img->mlx_ptr, img->win_ptr, img->img_ptr, 0, 0);
     return (0);
-}
-
-float   init_c_r(t_all *point)
-{
-    point->nb.c_r = 0.285;
-    return (point->nb.c_r);
-}
-
-float   init_c_i(t_all *point)
-{
-    point->nb.c_i = 0.01;
-    return (point->nb.c_i);
-}
+}*/
 
 float init_x(t_all *point)
 {

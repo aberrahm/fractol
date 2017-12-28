@@ -55,8 +55,11 @@ void ft_julia(t_all *point)
         {
             x = init_x(point);
             y = init_y(point);
-            point->nb.c_r = 0.285;
-            point->nb.c_i = 0.01;
+            // point->nb.c_r = init_mouse_x(point); 
+            // point->nb.c_i = init_mouse_y(point);
+            point->nb.c_r = point->mouse_x; 
+            point->nb.c_i = point->mouse_y;
+            point->nb.z_r = x;
             point->nb.z_r = x;
             point->nb.z_i = y;
             i = 0;
