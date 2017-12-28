@@ -27,7 +27,8 @@ FRAMEWORK = -lpthread -framework OpenGL -framework AppKit
 SRCS = srcs/create_image.c \
 		srcs/main.c \
 		srcs/algo.c \
-		srcs/zoom.c
+		srcs/zoom.c \
+		srcs/event.c
 
 OBJ = $(SRCS:%.c=%.o)
 

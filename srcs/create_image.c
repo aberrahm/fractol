@@ -14,10 +14,10 @@
 
 void create_img(t_all *img)
 {
-	img->size_win_x = 1400;
-	img->size_win_y = 1000;
-	img->width = 1400;
-	img->height = 1000;
+	img->size_win_x = 1000;
+	img->size_win_y = 600;
+	img->width = 1000;
+	img->height = 600;
 	img->mlx_ptr = mlx_init();
 	img->win_ptr = mlx_new_window(img->mlx_ptr, img->size_win_x,
 								  img->size_win_y, "fractol");

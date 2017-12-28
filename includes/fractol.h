@@ -17,9 +17,10 @@
 # include <fcntl.h>
 # include <pthread.h>
 # include "../libft/libft.h"
+# include "../minilibx_macos/mlx.h"
 # include "./keynote.h"
 # include "color.h"
-# include "mlx.h"
+//# include "mlx.h"
 
 typedef struct	s_coord
 {
@@ -70,8 +71,11 @@ typedef	struct	s_all
 	t_coord			coord;
 }				t_all;
 
+int		mouse_hook_julia(int button, int x, int y, t_all *img);
 void	ft_mandelbrot(t_all *point);
 void	ft_julia(t_all *point);
+void	ft_lapin(t_all *point);
+void	event(t_all img);
 void	ft_resize(t_all *imgt);
 void	ft_pixel_put(t_all *point, int x, int y, uint32_t color);
 void    create_img(t_all *img);
