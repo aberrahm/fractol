@@ -28,7 +28,7 @@ SRCS = srcs/create_image.c \
 		srcs/main.c \
 		srcs/algo.c \
 		srcs/zoom.c \
-		srcs/event.c
+		srcs/event.c \
 
 OBJ = $(SRCS:%.c=%.o)
 

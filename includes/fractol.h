@@ -68,13 +68,13 @@ typedef	struct	s_all
 	float			mouse_y;
 	int				button;
 	float			zoom;
+	t_coord			translate;
 	t_ortho			ortho;
 	t_nb			nb;
 	t_coord			coord;
 }				t_all;
 
 
-//int		mouse_hook_julia(int x, int y, t_all *img);
 void	ft_mandelbrot(t_all *point);
 void	ft_julia(t_all *point);
 void	ft_lapin(t_all *point);
@@ -85,6 +85,7 @@ void    create_img(t_all *img);
 void	zoom(t_all *img);
 float	init_x(t_all *img);
 float	init_y(t_all *img);
+int		key_hook(int keycode, t_all *point);
 int		mouse_hook(int button, int x, int y, t_all *img);
 int		mouse_hook_m(int x, int y, t_all *img);
 int		*ft_stock(t_all *point);

@@ -1,3 +1,3 @@
-# include "fractol.h"
-
+# include "../includes/fractol.h"
+# include <pthread.h>
 
