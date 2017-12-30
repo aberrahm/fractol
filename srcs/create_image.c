@@ -32,7 +32,7 @@ void ft_resize(t_all *img)
 	img->ortho.x2 = 0.6;
 	img->ortho.y1 = -1.2;
 	img->ortho.y2 = 1.2;
-	img->ite = 101;
+	img->ite = 50;
 	img->ortho.width = (img->ortho.x2 - img->ortho.x1); //* img->zoom;
 	img->ortho.height = (img->ortho.y2 - img->ortho.y1); //* img->zoom;
 }

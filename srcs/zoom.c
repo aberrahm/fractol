@@ -3,18 +3,16 @@
 
 int mouse_hook(int button, int x, int y, t_all *img)
 {
-    x = img->coord.x;
-    y = img->coord.y;
-
     if (button == M_LEFT || button == M_MOLUP)
     {
         img->zoom *= 0.8;
-        ft_julia(img);
+        img->zoom = img->mouse_x = (x - img->size_win_x / 2.0) / img->size_win_x * 2.0; //modif pour les puissances
     }
     if (button == M_RIGHT || button == M_MOLDOWN)
     {
         img->zoom *= 1.2;
-        ft_julia(img);
+        img->zoom = img->mouse_y = (y - img->size_win_y / 2.0) / img->size_win_y * 2.0; // modif en puissance
+        ft_mandelbrot(img);
     }
     return (0);
 }
@@ -23,7 +21,7 @@ int mouse_hook_m(int x, int y, t_all *img)
 {
     img->mouse_x = (x - img->size_win_x / 2.0) / img->size_win_x * 2.0;
     img->mouse_y = (y - img->size_win_y / 2.0) / img->size_win_y * 2.0;
-    ft_julia(img);
+    ft_mandelbrot(img);
     return (0);
 }
 

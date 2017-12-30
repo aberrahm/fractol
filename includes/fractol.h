@@ -68,6 +68,7 @@ typedef	struct	s_all
 	float			mouse_y;
 	int				button;
 	float			zoom;
+	int				stop;
 	t_coord			translate;
 	t_ortho			ortho;
 	t_nb			nb;

@@ -3,7 +3,7 @@
 void event(t_all img)
 {
     mlx_hook(img.win_ptr, 2, 1L << 8, key_hook, &img);
-    mlx_hook(img.win_ptr, 6, 1L << 6, mouse_hook_m, (void *)&img);
+   // mlx_hook(img.win_ptr, 6, 1L << 6, mouse_hook_m, (void *)&img);
     mlx_mouse_hook(img.win_ptr, mouse_hook, &img);
 }
 
@@ -25,8 +25,6 @@ int key_hook(int keycode, t_all *point)
             point->translate.y -= 10;
         else if (keycode == K_DOWN)
             point->translate.y += 10;
-        else if (keycode == K_ENTER)
-            
     }
     return (0);
 }
