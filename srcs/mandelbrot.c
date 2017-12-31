@@ -15,6 +15,7 @@
 void	ft_mandelbrot(t_all *point)
 {
 	int		i;
+	float	j;
 
 	ft_resize(point);
 	point->coord.x = 0;
@@ -25,8 +26,8 @@ void	ft_mandelbrot(t_all *point)
 		{
 			ft_mandel_init(point);
 			i = 0;
-			ft_mandel_n2(*point, i);
-			ft_mandel_n(*point, i);
+			ft_mandel_n2(point, j, i);
+			ft_mandel_n(point, i);
 			point->coord.y++;
 		}
 		point->coord.x++;
@@ -46,25 +47,23 @@ void	ft_mandel_init(t_all *point)
 	point->nb.z_i = 0.0;	
 }
 
-void	ft_mandel_n(t_all point, int i)
+void	ft_mandel_n(t_all *point, int i)
 {
-	if (i == point.ite)
-		ft_pixel_put(&point, point.coord.x, point.coord.y, ROUGEF);
+	if (i == point->ite)
+		ft_pixel_put(point, point->coord.x, point->coord.y, ROUGEF);
 	else
-		ft_pixel_put(&point, point.coord.x, point.coord.y, (i * FUSHIA) / point.ite);
+		ft_pixel_put(point, point->coord.x, point->coord.y, (i * FUSHIA) / point->ite);
 }
 
-void	ft_mandel_n2(t_all point, int i)
+void	ft_mandel_n2(t_all *point, float j, int i)
 {
-	float	j;
-
-	while (point.nb.z_r * point.nb.z_r + point.nb.z_i *
-			point.nb.z_i < 4 && i < point.ite)
+	while (point->nb.z_r * point->nb.z_r + point->nb.z_i *
+			point->nb.z_i < 4 && i < point->ite)
 	{
-		j = point.nb.z_r;
-		point.nb.z_r = point.nb.z_r * point.nb.z_r - point.nb.z_i *
-			point.nb.z_i + point.nb.c_r;
-		point.nb.z_i = 2.0 * point.nb.z_i * j + point.nb.c_i;
+		j = point->nb.z_r;
+		point->nb.z_r = point->nb.z_r * point->nb.z_r - point->nb.z_i *
+			point->nb.z_i + point->nb.c_r;
+		point->nb.z_i = 2.0 * point->nb.z_i * j + point->nb.c_i;
 		i++;
 	}
 }
