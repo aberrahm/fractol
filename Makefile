@@ -30,7 +30,8 @@ SRCS = srcs/create_image.c \
 		srcs/mandelbrot.c \
 		srcs/burningship.c \
 		srcs/zoom.c \
-		srcs/event.c
+		srcs/event.c \
+		srcs/init.c
 
 OBJ = $(SRCS:%.c=%.o)
 

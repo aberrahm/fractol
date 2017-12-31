@@ -79,6 +79,12 @@ typedef	struct	s_all
 void	ft_mandelbrot(t_all *point);
 void	ft_julia(t_all *point);
 void	ft_bship(t_all *point);
+void	ft_bship_init(t_all *point);
+void	ft_norm(t_all point);
+void	ft_mandel_init(t_all *point);
+void	ft_mandel_n(t_all point, int i);
+void	ft_mandel_n2(t_all point, int i);
+void	ft_bship_n(t_all *point, int i);
 void	event(t_all img);
 void	event_m(t_all img);
 void	event_b(t_all img);
