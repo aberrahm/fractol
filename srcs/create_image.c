@@ -12,7 +12,7 @@
 
 #include "../includes/fractol.h"
 
-void create_img(t_all *img)
+void create_img(t_all *img, char *str)
 {
 	img->size_win_x = 1000;
 	img->size_win_y = 600;
@@ -20,7 +20,7 @@ void create_img(t_all *img)
 	img->height = 600;
 	img->mlx_ptr = mlx_init();
 	img->win_ptr = mlx_new_window(img->mlx_ptr, img->size_win_x,
-								  img->size_win_y, "fractol");
+								  img->size_win_y, str);
 	img->img_ptr = mlx_new_image(img->mlx_ptr, img->width, img->height);
 	img->data = mlx_get_data_addr(img->img_ptr, &img->bpp,
 								  &img->sizeline, &img->endian);
@@ -28,10 +28,10 @@ void create_img(t_all *img)
 
 void ft_resize(t_all *img)
 {
-	img->ortho.x1 = -2.1;
-	img->ortho.x2 = 0.6;
-	img->ortho.y1 = -1.2;
-	img->ortho.y2 = 1.2;
+	img->ortho.x1 = -2.5;
+	img->ortho.x2 = 1.0;
+	img->ortho.y1 = 1.0;
+	img->ortho.y2 = -1.0;
 	img->ite = 50;
 	img->ortho.width = (img->ortho.x2 - img->ortho.x1); //* img->zoom;
 	img->ortho.height = (img->ortho.y2 - img->ortho.y1); //* img->zoom;

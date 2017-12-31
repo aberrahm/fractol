@@ -3,8 +3,19 @@
 void event(t_all img)
 {
     mlx_hook(img.win_ptr, 2, 1L << 8, key_hook, &img);
-   // mlx_hook(img.win_ptr, 6, 1L << 6, mouse_hook_m, (void *)&img);
+    mlx_hook(img.win_ptr, 6, 1L << 6, mouse_hook_j, (void *)&img);
     mlx_mouse_hook(img.win_ptr, mouse_hook, &img);
+}
+
+void    event_m(t_all img)
+{
+   mlx_hook(img.win_ptr, 2, 1L << 8, key_hook, &img);
+   mlx_mouse_hook(img.win_ptr, mouse_hook_m, &img);
+}
+void    event_b(t_all img)
+{
+   mlx_hook(img.win_ptr, 2, 1L << 8, key_hook, &img);
+   mlx_mouse_hook(img.win_ptr, mouse_hook_b, &img);
 }
 
 int key_hook(int keycode, t_all *point)
@@ -27,4 +38,10 @@ int key_hook(int keycode, t_all *point)
             point->translate.y += 10;
     }
     return (0);
+}
+
+int		ft_key_exit(int keycode, t_all *point)
+{
+	exit(keycode);
+	return ((int)point);
 }

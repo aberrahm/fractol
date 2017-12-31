@@ -78,17 +78,22 @@ typedef	struct	s_all
 
 void	ft_mandelbrot(t_all *point);
 void	ft_julia(t_all *point);
-void	ft_lapin(t_all *point);
+void	ft_bship(t_all *point);
 void	event(t_all img);
+void	event_m(t_all img);
+void	event_b(t_all img);
 void	ft_resize(t_all *imgt);
 void	ft_pixel_put(t_all *point, int x, int y, uint32_t color);
-void    create_img(t_all *img);
+void    create_img(t_all *img, char *str);
 void	zoom(t_all *img);
 float	init_x(t_all *img);
 float	init_y(t_all *img);
+int		ft_key_exit(int keycode, t_all *point);
 int		key_hook(int keycode, t_all *point);
 int		mouse_hook(int button, int x, int y, t_all *img);
-int		mouse_hook_m(int x, int y, t_all *img);
+int		mouse_hook_j(int x, int y, t_all *img);
+int		mouse_hook_m(int button, int x, int y, t_all *img);
+int		mouse_hook_b(int button, int x, int y, t_all *img);
 int		*ft_stock(t_all *point);
 int		main(int ac, char **av);
 

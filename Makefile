@@ -22,13 +22,15 @@ LIBS = $(MLX) $(LFT)
 MLX_INC = -I ./minilibx_macos
 LFT_INC = -I ./libft
 INC = $(LFT-INC) $(MLX_INC) -I ./
-FRAMEWORK = -lpthread -framework OpenGL -framework AppKit
+FRAMEWORK = -framework OpenGL -framework AppKit
 
 SRCS = srcs/create_image.c \
 		srcs/main.c \
-		srcs/algo.c \
+		srcs/julia.c \
+		srcs/mandelbrot.c \
+		srcs/burningship.c \
 		srcs/zoom.c \
-		srcs/event.c \
+		srcs/event.c
 
 OBJ = $(SRCS:%.c=%.o)
 
