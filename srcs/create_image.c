@@ -14,9 +14,9 @@
 
 void	create_img(t_all *img, char *str)
 {
-	img->size_win_x = 1000;
+	img->size_win_x = 800;
 	img->size_win_y = 600;
-	img->width = 1000;
+	img->width = 800;
 	img->height = 600;
 	img->mlx_ptr = mlx_init();
 	img->win_ptr = mlx_new_window(img->mlx_ptr, img->size_win_x,

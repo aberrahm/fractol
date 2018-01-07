@@ -6,43 +6,48 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/31 21:37:00 by aberrahm          #+#    #+#             */
-/*   Updated: 2017/12/31 22:05:46 by aberrahm         ###   ########.fr       */
+/*   Updated: 2018/01/07 03:01:35 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	ft_bship(t_all *point)
+void	ft_bship(t_all *p)
 {
-	int i;
-	float zr2;
-	float zi2;
-
-	ft_resize(point);
-	point->coord.x = 0;
-	while (point->coord.x < point->width)
+	ft_resize(p);
+	p->coord.x = 0;
+	while (p->coord.x < p->width)
 	{
-		point->coord.y = 0;
-		while (point->coord.y < point->height)
+		p->coord.y = 0;
+		while (p->coord.y < p->height)
 		{
-			ft_bship_init(point);
-			zr2 = point->nb.z_r * point->nb.z_i;
-			zi2 = point->nb.z_i * point->nb.z_i;
-			i = 0;
-			while (zr2 + zi2 < 4 && i < point->ite)
-			{
-				point->nb.z_i = fabs(2.0 * point->nb.z_i * point->nb.z_r
-						+ point->nb.c_i);
-				point->nb.z_r = fabs(zr2 - zi2 + point->nb.c_r);
-				zr2 = point->nb.z_r * point->nb.z_r;
-				zi2 = point->nb.z_i * point->nb.z_i;
-				i++;
-			}
-			ft_bship_n(point, i);
-			point->coord.y++;
+			ft_bship_init(p);
+			ft_bship_b(p);
+			p->coord.y++;
 		}
-		point->coord.x++;
+		p->coord.x++;
 	}
+}
+
+void	ft_bship_b(t_all *p)
+{
+	int		i;
+	float	zr;
+	float	zi;
+
+	zr = p->nb.z_r * p->nb.z_i;
+	zi = p->nb.z_i * p->nb.z_i;
+	i = 0;
+	while (zr + zi < 4 && i < p->ite)
+	{
+		p->nb.z_i = fabs(-2.0 * p->nb.z_i * p->nb.z_r
+				+ p->nb.c_i);
+		p->nb.z_r = fabs(zr - zi + p->nb.c_r);
+		zr = p->nb.z_r * p->nb.z_r;
+		zi = p->nb.z_i * p->nb.z_i;
+		i++;
+	}
+	ft_bship_n(p, i);
 }
 
 void	ft_bship_init(t_all *point)

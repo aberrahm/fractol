@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/31 21:38:29 by aberrahm          #+#    #+#             */
-/*   Updated: 2017/12/31 22:30:01 by aberrahm         ###   ########.fr       */
+/*   Updated: 2018/01/07 01:07:05 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		refresh(t_all *point)
 {
 	mlx_put_image_to_window(point->mlx_ptr,
-			point->win_ptr, point->img_ptr, 0, 0);
+							point->win_ptr, point->img_ptr, 0, 0);
 	return (0);
 }
 
@@ -28,24 +28,31 @@ int		main(int ac, char **av)
 	i = 0;
 	if (ac == 2)
 	{
-		if (!ft_strcmp(av[1], "julia"))
-		{
-			create_img(&point, av[1]);
-			event(point);
-		}
-		if (!ft_strcmp(av[1], "mandelbrot"))
-		{
-			create_img(&point, av[1]);
-			event_m(point);
-		}
-		if (!ft_strcmp(av[1], "burningship"))
-		{
-			create_img(&point, av[1]);
-			event_b(point);
-		}
-		ft_norm(point);
+		ft_cmp(av[1], point);
 	}
 	return (0);
+}
+
+void	ft_cmp(char *str, t_all point)
+{
+	if (!ft_strcmp(str, "julia"))
+	{
+		create_img(&point, str);
+		event(point);
+	}
+	else if (!ft_strcmp(str, "mandelbrot"))
+	{
+		create_img(&point, str);
+		event_m(point);
+	}
+	else if (!ft_strcmp(str, "burningship"))
+	{
+		create_img(&point, str);
+		event_b(point);
+	}
+	else
+		exit(0);
+	ft_norm(point);
 }
 
 void	ft_norm(t_all point)

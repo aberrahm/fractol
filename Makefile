@@ -6,7 +6,7 @@
 #    By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/09 03:42:19 by aberrahm          #+#    #+#              #
-#    Updated: 2017/12/09 03:42:22 by aberrahm         ###   ########.fr        #
+#    Updated: 2018/01/07 02:25:16 by aberrahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,12 @@ NAME = fractol
 CC = clang
 FLAGS = -Wall -Wextra -Werror
 
-MLX = ./minilibx_macos/libmlx.a
 LFT = ./libft/libft.a
-LIBS = $(MLX) $(LFT)
+LIBS = $(LFT)
 
-MLX_INC = -I ./minilibx_macos
 LFT_INC = -I ./libft
-INC = $(LFT-INC) $(MLX_INC) -I ./
-FRAMEWORK = -framework OpenGL -framework AppKit
+INC = $(LFT-INC) -I ./
+FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 
 SRCS = srcs/create_image.c \
 		srcs/main.c \
@@ -31,7 +29,8 @@ SRCS = srcs/create_image.c \
 		srcs/burningship.c \
 		srcs/zoom.c \
 		srcs/event.c \
-		srcs/init.c
+		srcs/init.c \
+		srcs/key.c
 
 OBJ = $(SRCS:%.c=%.o)
 
@@ -45,14 +44,12 @@ $(NAME) : $(OBJ)
 	@echo " "
 	@echo "\\033[35m\033[1mLib Ok !\\033[0m"
 	@echo " "
-	make -C ./minilibx_macos
 	$(CC) $(FLAGS) $(FRAMEWORK) $(LIBS) $(INC) $(OBJ) -o $(NAME)
 	@echo " "
 	@echo "\\0033[32m\033[1m  Executable created  \\0033[0m"
 
 clean:
 	make clean -C ./libft
-	make clean -C ./minilibx_macos
 	rm -rf $(OBJ)
 
 fclean: clean

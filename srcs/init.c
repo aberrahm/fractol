@@ -25,7 +25,7 @@ float	init_y(t_all *point)
 {
 	float	y;
 
-	y = ((((float)point->height - (float)point->coord.y) /
+	y = ((((float)point->coord.y - (float)point->translate.y) /
 				(float)point->height) * point->ortho.height) + point->ortho.y1;
 	return (y * point->zoom);
 }

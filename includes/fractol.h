@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 03:01:00 by aberrahm          #+#    #+#             */
-/*   Updated: 2017/12/09 03:01:03 by aberrahm         ###   ########.fr       */
+/*   Updated: 2018/01/07 02:52:15 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 # include <math.h>
 # include <fcntl.h>
-# include <pthread.h>
 # include "../libft/libft.h"
-# include "../minilibx_macos/mlx.h"
 # include "./keynote.h"
 # include "color.h"
-//# include "mlx.h"
+# include "mlx.h"
 
 typedef struct	s_coord
 {
@@ -36,7 +34,7 @@ typedef struct	s_ortho
 	float			x2;
 	float			y1;
 	float			y2;
-	t_coord		coord;
+	t_coord			coord;
 }				t_ortho;
 
 typedef struct	s_nb
@@ -75,32 +73,39 @@ typedef	struct	s_all
 	t_coord			coord;
 }				t_all;
 
-
-void	ft_mandelbrot(t_all *point);
-void	ft_julia(t_all *point);
-void	ft_bship(t_all *point);
-void	ft_bship_init(t_all *point);
-void	ft_norm(t_all point);
-void	ft_mandel_init(t_all *point);
-void	ft_mandel_n(t_all point, int i);
-void	ft_mandel_n2(t_all point, int i);
-void	ft_bship_n(t_all *point, int i);
-void	event(t_all img);
-void	event_m(t_all img);
-void	event_b(t_all img);
-void	ft_resize(t_all *imgt);
-void	ft_pixel_put(t_all *point, int x, int y, uint32_t color);
-void    create_img(t_all *img, char *str);
-void	zoom(t_all *img);
-float	init_x(t_all *img);
-float	init_y(t_all *img);
-int		ft_key_exit(int keycode, t_all *point);
-int		key_hook(int keycode, t_all *point);
-int		mouse_hook(int button, int x, int y, t_all *img);
-int		mouse_hook_j(int x, int y, t_all *img);
-int		mouse_hook_m(int button, int x, int y, t_all *img);
-int		mouse_hook_b(int button, int x, int y, t_all *img);
-int		*ft_stock(t_all *point);
-int		main(int ac, char **av);
+void			ft_julia_init(t_all *point);
+void			ft_julia_b(t_all *point);
+void			ft_julia_n(t_all *point, int i);
+void			ft_bship_b(t_all *p);
+void			ft_tricks(t_all *p);
+void			ft_cmp(char *str, t_all point);
+void			ft_mandelbrot(t_all *point);
+void			ft_julia(t_all *point);
+void			ft_bship(t_all *p);
+void			ft_bship_init(t_all *point);
+void			ft_norm(t_all point);
+void			ft_mandel_init(t_all *point);
+void			ft_mandel_n(t_all *point, int i);
+void			ft_mandel_n2(t_all *point, int i);
+void			ft_bship_n(t_all *point, int i);
+void			event(t_all img);
+void			event_m(t_all img);
+void			event_b(t_all img);
+void			ft_resize(t_all *imgt);
+void			ft_pixel_put(t_all *point, int x, int y, uint32_t color);
+void			create_img(t_all *img, char *str);
+void			zoom(t_all *img);
+float			init_x(t_all *img);
+float			init_y(t_all *img);
+int				ft_key_exit(int keycode, t_all *point);
+int				key_hook(int k, t_all *point);
+int				key_hook_m(int keycode, t_all *point);
+int				key_hook_b(int keycode, t_all *point);
+int				mouse_hook(int button, int x, int y, t_all *img);
+int				mouse_hook_j(int x, int y, t_all *img);
+int				mouse_hook_m(int button, int x, int y, t_all *img);
+int				mouse_hook_b(int button, int x, int y, t_all *img);
+int				*ft_stock(t_all *point);
+int				main(int ac, char **av);
 
 #endif
