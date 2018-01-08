@@ -6,7 +6,7 @@
 /*   By: aberrahm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/31 21:37:25 by aberrahm          #+#    #+#             */
-/*   Updated: 2017/12/31 22:23:17 by aberrahm         ###   ########.fr       */
+/*   Updated: 2018/01/07 06:15:06 by aberrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,14 @@ int		key_hook(int k, t_all *point)
 			point->translate.y -= 10;
 		else if (k == K_DOWN)
 			point->translate.y += 10;
-		ft_memset((void*)point->data, 0, point->width *
+/*		else if (k == K_PLUS)
+			point->translate.x += (((float)point->mouse_x * ;
+		else if (k == K_MOINS)
+			point->translate.y += (((float)point->mouse_y ;
+		*/ft_memset((void*)point->data, 0, point->width *
 		point->height * sizeof(int));
-		ft_julia(point);
+		//remplacer mandelbrot par julia ici
+		ft_mandelbrot(point);
 		mlx_put_image_to_window(point->mlx_ptr, point->win_ptr,
 		point->img_ptr, 0, 0);
 	}
