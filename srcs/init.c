@@ -16,16 +16,18 @@ float	init_x(t_all *point)
 {
 	float	x;
 
-	x = ((((float)point->coord.x + point->translate.x) /
-				(float)point->width) * point->ortho.width) + point->ortho.x1;
-	return (x * point->zoom);
+	x = (((((float)point->coord.x * point->zoom) +
+	((((float)point->translate.x / (float)point->width) * point->ortho.width *
+	100))) / (float)point->width) * point->ortho.width) + point->ortho.x1;
+	return (x);
 }
 
 float	init_y(t_all *point)
 {
 	float	y;
 
-	y = ((((float)point->coord.y - (float)point->translate.y) /
-				(float)point->height) * point->ortho.height) + point->ortho.y1;
-	return (y * point->zoom);
+	y = ((((((float)point->coord.y * point->zoom) -
+	(((float)point->translate.y / (float)point->height) * point->ortho.height *
+	100))) / (float)point->height) * point->ortho.height) + point->ortho.y1;
+	return (y);
 }

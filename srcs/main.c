@@ -62,7 +62,7 @@ void	ft_cmp(char *str, t_all point)
 
 void	ft_norm(t_all point)
 {
-	mlx_put_image_to_window(point.mlx_ptr, point.win_ptr, point.img_ptr, 0,0);
+	mlx_put_image_to_window(point.mlx_ptr, point.win_ptr, point.img_ptr, 0, 0);
 	mlx_hook(point.win_ptr, 17, 1L << 17, ft_key_exit, (void *)&point);
 	mlx_loop_hook(point.mlx_ptr, refresh, &point);
 	mlx_loop(point.mlx_ptr);
